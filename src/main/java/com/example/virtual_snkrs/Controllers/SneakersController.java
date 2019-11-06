@@ -39,8 +39,9 @@ public class SneakersController {
     }
 
     //Delete sneakers
-    @DeleteMapping("/sneaker/{sneakersId}")
+    @DeleteMapping("/sneakers/{sneakersId}")
     public ResponseEntity deletePostById(@PathVariable Long sneakersId) {
         return sneakersService.deleteSneakersById(sneakersId);
     }
+
 }

@@ -18,6 +18,4 @@ public interface SneakersService {
 
     //Delete sneakers
     public ResponseEntity deleteSneakersById(Long sneakersId);
-
-
 }

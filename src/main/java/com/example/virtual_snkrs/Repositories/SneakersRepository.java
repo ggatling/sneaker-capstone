@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SneakersRepository extends CrudRepository<Sneakers, Long> {
-    @Query("FROM Sneakers s WHERE s.user_id = ?1")
+    @Query("select * FROM Sneakers s WHERE s.user_id = ?1")
     public Iterable<Sneakers> findByUserId(Long userId);
+
 }

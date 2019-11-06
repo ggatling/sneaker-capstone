@@ -1,7 +1,6 @@
 package com.example.virtual_snkrs.Controllers;
 
 import com.example.virtual_snkrs.Models.Clothes;
-import com.example.virtual_snkrs.Models.Sneakers;
 import com.example.virtual_snkrs.Repositories.ClothesRepository;
 import com.example.virtual_snkrs.Repositories.UserRepository;
 import com.example.virtual_snkrs.Services.ClothesService;

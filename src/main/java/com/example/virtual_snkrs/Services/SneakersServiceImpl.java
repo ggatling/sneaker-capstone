@@ -69,4 +69,5 @@ public class SneakersServiceImpl implements SneakersService{
         }
         return new ResponseEntity(HttpStatus.OK);
     }
+
 }

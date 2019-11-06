@@ -26,7 +26,14 @@ public class Clothes {
     private String size;
 
     @Column
+    private int retailPrice;
+
+    @Column
     private String forRent;
+
+    @Column
+    private int rentalPrice;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "user_id", nullable = false)
@@ -75,12 +82,28 @@ public class Clothes {
         this.size = size;
     }
 
+    public int getRetailPrice() {
+        return retailPrice;
+    }
+
+    public void setRetailPrice(int retailPrice) {
+        this.retailPrice = retailPrice;
+    }
+
     public String getForRent() {
         return forRent;
     }
 
     public void setForRent(String forRent) {
         this.forRent = forRent;
+    }
+
+    public int getRentalPrice() {
+        return rentalPrice;
+    }
+
+    public void setRentalPrice(int rentalPrice) {
+        this.rentalPrice = rentalPrice;
     }
 
     @JsonIgnore

@@ -91,7 +91,7 @@ public class Sneakers {
     public void setReleaseDate(String releaseDate){
         this.releaseDate = releaseDate;
     }
-    private int getRetailPrice(){
+    public int getRetailPrice(){
         return retailPrice;
     }
 
@@ -113,6 +113,7 @@ public class Sneakers {
     public void setResalePrice(int resalePrice){
         this.resalePrice = resalePrice;
     }
+
     @JsonIgnore
     public User getUser() {
         return user;
