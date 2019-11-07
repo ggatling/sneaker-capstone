@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -9,24 +10,40 @@ import {
 import Home from './Home';
 import Sneakers from './Sneakers';
 import Clothes from './Clothes';
+import Footer from './Footer';
+import {Layout} from './components/Layout';
+import {NavigationBar} from './components/NavigationBar';
+import {Jumbotron} from './components/Jumbotron';
 
 class App extends Component {
   render(){
       return (
-        <Router>
-        <div>
-        <nav>
-          <Link to="/">Home</Link>{' '}
-          <Link to="/sneakers">Sneakers</Link>{' '}
-          <Link to="/clothes">Clothes</Link>
-        </nav>
-        </div>
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route path="/sneakers" component={Sneakers} />
-          <Route path="/clothes" component={Clothes} />
-        </div>
-      </Router>
+        <React.Fragment>
+          <NavigationBar />
+          <Jumbotron />
+          <Layout>
+          <Router>
+          <div>
+        
+          </div>
+
+          <div>
+            {/* Home page link */}
+            <Route exact path="/" component={Home} />
+
+            {/* Sneakers page link */}
+            <Route path="/sneakers" component={Sneakers} />
+
+            {/* Home page link */}
+            <Route path="/clothes" component={Clothes} />
+
+            <Footer />
+          </div>
+
+
+        </Router>
+        </Layout>
+      </React.Fragment>
       );
     }
   }
