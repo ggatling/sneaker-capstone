@@ -24,7 +24,7 @@ class App extends Component {
           <Layout>
           <Router>
           <div>
-            
+
           </div>
 
           <div>
@@ -37,9 +37,9 @@ class App extends Component {
             {/* Home page link */}
             <Route path="/clothes" component={Clothes} />
 
-            <Footer />
-          </div>
 
+          </div>
+          <Footer />
 
         </Router>
         </Layout>
