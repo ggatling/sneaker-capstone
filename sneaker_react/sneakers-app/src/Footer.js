@@ -4,10 +4,8 @@ class Footer extends Component {
     return (
       <footer>
         <div>
-          <p>
           Footer component, Soon to be ticker
-          <p class="marquee"><span>$250 Jordan XI Concord | $300 Jordan XI Bred </span></p>
-          </p>
+          <p className="marquee"><span>$250 Jordan XI Concord | $300 Jordan XI Bred </span></p>
         </div>
       </footer>
     )

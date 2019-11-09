@@ -25,6 +25,7 @@ export const NavigationBar = ()=>(
           <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
           <Nav.Item><Nav.Link href="/sneakers">Sneakers</Nav.Link></Nav.Item>
           <Nav.Item><Nav.Link href="/clothes">Clothes</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/profile">Closet</Nav.Link></Nav.Item>
         </Nav>
     </Navbar>
   </Styles>

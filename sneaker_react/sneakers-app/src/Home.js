@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Form} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
-import {Card} from 'react-bootstrap';
-import {Container} from 'react-bootstrap';
-import {Row} from 'react-bootstrap';
-import {Col} from 'react-bootstrap';
+import {
+  Row, Col, Container, CardImg, Card, Form, Button,
+} from 'react-bootstrap';
+import yeezy from "./assets/yeezy4.jpg";
+import clothesgrey from "./assets/clothes-grey.jpg";
+import clotheshanging from "./assets/clothes-hanging.jpg";
+
 
 class Home extends Component {
   render(){
@@ -16,6 +17,39 @@ class Home extends Component {
             we aim to optimize peer 2 peer selling and lending of all the most sought
             after items in your closet. Let your closet make you money!
           </p>
+          <Row>
+          <Col>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="bottom" top-width="100%" src={yeezy} alt="yeezy" / >
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+
+              <Button variant="primary">View Profile</Button>
+            </Card.Body>
+          </Card>
+          </Col>
+
+          <Col>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="bottom" top-width="100%" src={clothesgrey} alt="yeezy" / >
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+
+              <Button variant="primary">View Profile</Button>
+            </Card.Body>
+          </Card>
+          </Col>
+
+          <Col>
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="bottom" top-width="100%" src={clotheshanging} alt="yeezy" / >
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Button variant="primary">View Profile</Button>
+            </Card.Body>
+          </Card>
+          </Col>
+          </Row>
 
           <div>
           <Container>
@@ -73,6 +107,8 @@ class Home extends Component {
               </Col>
             </Row>
           </Container>
+
+
 
         </div>
 
