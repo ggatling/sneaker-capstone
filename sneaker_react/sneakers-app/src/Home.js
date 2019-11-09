@@ -5,9 +5,28 @@ import {
 import yeezy from "./assets/yeezy4.jpg";
 import clothesgrey from "./assets/clothes-grey.jpg";
 import clotheshanging from "./assets/clothes-hanging.jpg";
+import Signup from "./Signup";
+import Login from "./Login";
+import reactDOM from "react-dom";
+import signlogin from "./signlogin.scss";
 
 
 class Home extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSignupOpen: true,
+      isLoginOpen: false
+      };
+    }
+    showSignUpBox(){
+      this.setState({isSignupOpen: true, isLoginOpen: false});
+    }
+    showLoginBox(){
+      this.setState({isLoginOpen: true, isSignupOpen: false});
+    }
+
   render(){
       return (
         <div>
@@ -17,6 +36,25 @@ class Home extends Component {
             we aim to optimize peer 2 peer selling and lending of all the most sought
             after items in your closet. Let your closet make you money!
           </p>
+
+            <div className="box-container">
+              <div className={"controller" + (this.state.isSignupOpen ? "selected-controller" :"")}
+              onClick={this
+                .showSignUpBox
+                .bind(this)}>SignUp
+                </div>
+              <div className={"controller" + (this.state.isLoginOpen ? "selected-controller" :"")}
+               onClick={this
+                 .showLoginBox
+                 .bind(this)}>Login
+                 </div>
+                 <div>
+                   {this.state.isSignupOpen && <Signup />}
+                   {this.state.isLoginOpen && <Login />}
+                 </div>
+
+          </div>
+
           <Row>
           <Col>
           <Card style={{ width: '18rem' }}>
@@ -51,71 +89,19 @@ class Home extends Component {
           </Col>
           </Row>
 
-          <div>
-          <Container>
-            <Row>
-              <Col>
-              <div>
-                <h3>Sign Up</h3>
-              </div>
-              <Form>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
-                </Form.Group>
 
-                <Form.Group controlId="formUsername">
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control type="username" placeholder="Enter username" />
-                </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Button variant="info" type="submit">
-                  Submit
-                </Button>
-            </Form>
-              </Col>
-              <Col>
-              <div>
-                <h3>Login</h3>
-              </div>
-              <Form>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Button variant="info" type="submit">
-                  Submit
-                </Button>
-                </Form>
-              </Col>
-            </Row>
-          </Container>
 
 
 
         </div>
 
-        </div>
       );
     }
   }
 
+
+  reactDOM.render(
+    <Home />, document.getElementById("root"));
 
 export default Home;
