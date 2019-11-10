@@ -101,7 +101,6 @@ class Home extends Component {
   }
 
 
-  reactDOM.render(
-    <Home />, document.getElementById("root"));
+  
 
 export default Home;
