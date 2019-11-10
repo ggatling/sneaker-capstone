@@ -8,12 +8,58 @@ class Login extends Component{
 
   constructor(props) {
       super(props);
-      this.state = {};
+      this.state = {username:"",password:"",errors:[]};
     }
 
-    submitLogin(e) {}
+    showValidationError(element, message){
+      this.setState((prevState) => ({errors: [...prevState.errors,{element,message}]}));
+    }
+
+    clearValidationError(element){
+      this.setState((prevState) =>{
+        let newArr=[];
+        for(let error of prevState.errors){
+          if(element !== error.element){
+          newArr.push(error);
+          }
+        }
+        return {errors: newArr};
+      });
+    }
+
+    onUsernameChange(e){
+      this.setState({username: e.target.value});
+       this.clearValidationError("username");
+
+    }
+
+    onPasswordChange(e){
+      this.setState({password: e.target.value});
+       this.clearValidationError("password");
+     }
+
+    submitLogin(e) {
+      console.log(this.state);
+
+      if(this.state.username === ""){
+
+          this.showValidationError("username","Username Cannot be empty!");
+        }
+        if (this.state.password === ""){
+          this.showValidationError("password","Password Cannot be empty!");
+        }
+    }
 
     render() {
+      let usernameError = null, passwordError= null, emailError = null;
+      for(let error of this.state.errors){
+        if(error.element === "username"){
+          usernameError = error.message;
+        }if (error.element === "password"){
+          passwordError = error.message;
+        }
+      }
+
       return (
         <div className="inner-container">
           <div className="header">
@@ -27,7 +73,11 @@ class Login extends Component{
                 type="text"
                 name="username"
                 className="login-input"
-                placeholder="Username"/>
+                placeholder="Username"
+                onChange={this
+                  .onUsernameChange
+                  .bind(this)}/>
+                <small className="danger-error">{usernameError ? usernameError : ""}</small>
             </div>
 
             <div className="input-group">
@@ -36,7 +86,12 @@ class Login extends Component{
                 type="password"
                 name="password"
                 className="login-input"
-                placeholder="Password"/>
+                placeholder="Password"
+                onChange={this
+                  .onPasswordChange
+                  .bind(this)}
+                />
+                <small className="danger-error">{passwordError ? passwordError : ""}</small>
             </div>
 
             <button

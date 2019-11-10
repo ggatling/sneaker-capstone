@@ -2,13 +2,20 @@ import React,{Component} from 'react';
 import {
   Row, Col, Container, CardImg, Card, Form, Button,
 } from 'react-bootstrap';
+import axios from 'axios';
 
 
 
 class Signup extends Component{
   constructor(props) {
     super(props);
-    this.state = {username:"",email:"",password:"",errors:[], pwdState: null,};
+    this.state = {username:"",
+    userProfile:{
+      email:""
+    }
+    ,password:""
+    ,errors:[]
+    ,pwdState: null,};
   }
 
   showValidationError(element, message){
@@ -33,7 +40,12 @@ class Signup extends Component{
 
   }
   onEmailChange(e){
-    this.setState({email: e.target.value});
+    const {userProfile} = {...this.state};
+    const currentState = userProfile;
+    const {name, value} = e.target;
+    currentState[name] = value;
+
+    this.setState({email: currentState});
      this.clearValidationError("email");
   }
   onPasswordChange(e){
@@ -49,6 +61,7 @@ class Signup extends Component{
   }
 
   submitSignup(e){
+    e.preventDefault()
     console.log(this.state);
 
     if(this.state.username === ""){
@@ -61,6 +74,15 @@ class Signup extends Component{
       if (this.state.password === ""){
         this.showValidationError("password","Password Cannot be empty!");
       }
+
+
+      axios.post('http://localhost:8080/signup/', this.state)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
 
     }
 
