@@ -3,6 +3,7 @@ import {
   Row, Col, Container, CardImg, Card, Form, Button,
 } from 'react-bootstrap';
 import signlogin from "./signlogin.scss";
+import axios from 'axios';
 
 class Login extends Component{
 
@@ -48,6 +49,14 @@ class Login extends Component{
         if (this.state.password === ""){
           this.showValidationError("password","Password Cannot be empty!");
         }
+
+        axios.post('http://localhost:8080/login/', this.state)
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.log(error)
+          })
     }
 
     render() {
