@@ -9,7 +9,9 @@ class Login extends Component{
 
   constructor(props) {
       super(props);
-      this.state = {username:"",password:"",errors:[]};
+      this.state = {username:"",
+      password:"",
+      errors:[]};
     }
 
     showValidationError(element, message){
@@ -39,7 +41,7 @@ class Login extends Component{
        this.clearValidationError("password");
      }
 
-    submitLogin(e) {
+    submitLogin = (e) => {
       console.log(this.state);
 
       if(this.state.username === ""){
@@ -51,12 +53,14 @@ class Login extends Component{
         }
 
         axios.post('http://localhost:8080/login/', this.state)
-          .then(response => {
-            console.log(response)
-          })
+        .then(response => {
+          console.log(response.data.token)
+          this.setState({token: "lol"})
+        })
           .catch(error => {
             console.log(error)
           })
+          console.log(this.state)
     }
 
     render() {

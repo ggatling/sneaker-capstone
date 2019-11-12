@@ -79,6 +79,9 @@ class Signup extends Component{
       axios.post('http://localhost:8080/signup/', this.state)
         .then(response => {
           console.log(response)
+          if (response.httpStatus !== 'BAD_REQUEST'){
+            alert('Thank you for signing up, build your closet!');
+          }
         })
         .catch(error => {
           console.log(error)
@@ -135,7 +138,7 @@ class Signup extends Component{
           <div className="input-group">
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              type="email"
               name="email"
               className="login-input"
               placeholder="Email"

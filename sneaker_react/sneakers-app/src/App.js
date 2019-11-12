@@ -10,7 +10,6 @@ import {
 import Home from './Home';
 import Sneakers from './Sneakers';
 import Clothes from './Clothes';
-import Profile from './Profile';
 import Footer from './Footer';
 import {Layout} from './components/Layout';
 import {NavigationBar} from './components/NavigationBar';
@@ -39,7 +38,7 @@ class App extends Component {
             <Route path="/clothes" component={Clothes} />
 
             {/* Home page link */}
-            <Route path="/profile" component={Profile} />
+            {/*}<Route path="/profile" component={Profile} /> */}
 
 
           </div>
