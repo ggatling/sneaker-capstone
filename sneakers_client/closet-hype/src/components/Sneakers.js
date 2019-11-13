@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import Sneaker from "./Sneaker.js";
+import {
+  Row, Col, Container
+} from 'react-bootstrap';
 
 class Sneakers extends Component {
   constructor(props) {
@@ -46,9 +49,21 @@ class Sneakers extends Component {
   render() {
     return (
       <div>
-
+      <Container className="allSneaker">
+      <Row>
+        <Col>Brand</Col>
+        <Col>Name</Col>
+        <Col>Gender</Col>
+        <Col>Size</Col>
+        <Col>Condition</Col>
+        <Col>Release Date</Col>
+        <Col>Retail Price</Col>
+        <Col>Resale price</Col>
+      </Row>
+      </Container>
          {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {
           return (
+
             <Sneaker
              brand = {sneaker.brand}
              name = {sneaker.name}

@@ -1,5 +1,6 @@
 import React,{Component} from "react";
-import Info from "./Info.js"
+import UserSneakers from "./UserSneakers.js"
+import Info from "./Info.js";
 
 class Profile extends Component{
   constructor(props){
@@ -15,7 +16,7 @@ class Profile extends Component{
   }
   componentDidMount =() =>{
     this.getProfile();
-    // this.getProfileSneakers();
+    this.getProfileSneakers();
     // this.getProfileClothes();
   }
 
@@ -47,18 +48,56 @@ class Profile extends Component{
     });
   }
 
-  // getProfileSneakers(){
-  //   fetch("http://localhost:8080/profile")
-  // }
+  getProfileSneakers=()=>{
+    fetch("http://localhost:8080/sneakers/list",{
+      method: "Get",
+      headers: new Headers({
+        'Authorization': "Bearer " + localStorage.getItem("user"),
+        "Content-Type": "application/json"
+      })
+    })
+    .then(res => {
+      // console.log(res.json())
+      return res.json()
+      // set the state to be an array of user sneakers
+    })
+    .then(res => {
+      this.setState({
+        sneakers: res
+      })
+      return res;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 
-  render(){
+  render() {
     return(
+      <div>
       <Info
-        email = {this.state.email}
-        city = {this.state.city}
-        state = {this.state.state}
-        zipcode = {this.state.zipcode}
-      />
+            email = {this.state.email}
+            city = {this.state.city}
+            state = {this.state.state}
+            zipcode = {this.state.zipcode}
+                />
+         {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {
+          return (
+
+            <UserSneakers
+             brand = {sneaker.brand}
+             name = {sneaker.name}
+             gender = {sneaker.gender}
+             size = {sneaker.size}
+             condition = {sneaker.condition}
+             releaseDate = {sneaker.releaseDate}
+             retailPrice = {sneaker.retailPrice}
+             resalePrice = {sneaker.resalePrice}
+             />
+          )
+
+        })}
+      </div>
     )
   }
 }
