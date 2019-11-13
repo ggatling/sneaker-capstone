@@ -8,12 +8,13 @@ import {
 class Sneakers extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sneakers: [],
+      this.state = {
+      user: [],
       seeSneakers: false,
-      user: localStorage.getItem("user")
+      users: localStorage.getItem("user")
     }
   }
+  usersArr = [];
   componentDidMount = () => {
     this.getSneakers();
 
@@ -21,10 +22,10 @@ class Sneakers extends Component {
 
   getSneakers = () => {
     console.log(this.state.user)
-    fetch("http://localhost:8080/sneakers/list/all",{
+    fetch("http://localhost:8080/user/list",{
       method: "Get",
       headers: new Headers({
-        'Authorization': "Bearer " + this.state.user,
+        'Authorization': "Bearer " + this.state.users,
         "Content-Type": "application/json"
       })
     })
@@ -35,48 +36,54 @@ class Sneakers extends Component {
       // set the state to be an array of sneakers
     })
     .then(res => {
-      this.setState({
-        sneakers: res,
-        seeSneakers: true
-      })
+      this.setState({user: res});
+      console.log("first user id "+this.state.user[0].sneakers[0].brand)
       return res;
     })
     .catch(err => {
       console.log(err);
     });
+
   }
 
   render() {
-    return (
+    return(
       <div>
-      <Container className="allSneaker">
-      <Row>
-        <Col>Brand</Col>
-        <Col>Name</Col>
-        <Col>Gender</Col>
-        <Col>Size</Col>
-        <Col>Condition</Col>
-        <Col>Release Date</Col>
-        <Col>Retail Price</Col>
-        <Col>Resale price</Col>
-      </Row>
-      </Container>
-         {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {
-          return (
+        <Container className="allSneaker">
+        <Row>
+          <Col>Brand</Col>
+          <Col>Name</Col>
+          <Col>Gender</Col>
+          <Col>Size</Col>
+          <Col>Condition</Col>
+          <Col>Release Date</Col>
+          <Col>Retail Price</Col>
+          <Col>Resale price</Col>
+          <Col>E-mail</Col>
+        </Row>
+        </Container>
 
-            <Sneaker
-             brand = {sneaker.brand}
-             name = {sneaker.name}
-             gender = {sneaker.gender}
-             size = {sneaker.size}
-             condition = {sneaker.condition}
-             releaseDate = {sneaker.releaseDate}
-             retailPrice = {sneaker.retailPrice}
-             resalePrice = {sneaker.resalePrice}
-             />
-          )
+          { this.state.user.length > 0 && this.state.user.map(currUser => {
+              return currUser.sneakers.length>0 && currUser.sneakers.map(sneaker=>{
+               console.log(currUser.userProfile.email);
+                return (
+                  <div>
+                  <Sneaker
+                   brand = {sneaker.brand}
+                   name = {sneaker.name}
+                   gender = {sneaker.gender}
+                   size = {sneaker.size}
+                   condition = {sneaker.condition}
+                   releaseDate = {sneaker.releaseDate}
+                   retailPrice = {sneaker.retailPrice}
+                   resalePrice = {sneaker.resalePrice}
+                   email = {currUser.userProfile.email}
+                   />
+                   </div>
+                )
+              })
+          })}
 
-        })}
       </div>
     )
   }
