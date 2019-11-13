@@ -14,7 +14,8 @@ const Clothing = props => {
         <Col>{props.gender}</Col>
         <Col>{props.size}</Col>
         <Col>{props.retailPrice}</Col>
-        <Col>{props.rentalePrice}</Col>
+        <Col>{props.rentalPrice}</Col>
+        <Col>{props.email}</Col>
       </Row>
  </Container>
   )
