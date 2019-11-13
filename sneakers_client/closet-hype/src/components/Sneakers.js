@@ -7,7 +7,8 @@ class Sneakers extends Component {
     super(props);
     this.state = {
       sneakers: [],
-      seeSneakers: false
+      seeSneakers: false,
+      user: localStorage.getItem("user")
     }
   }
   componentDidMount = () => {
@@ -16,10 +17,11 @@ class Sneakers extends Component {
   }
 
   getSneakers = () => {
+    console.log(this.state.user)
     fetch("http://localhost:8080/sneakers/list/all",{
       method: "Get",
       headers: new Headers({
-        'Authorization': "Bearer " + localStorage.getItem("user"),
+        'Authorization': "Bearer " + this.state.user,
         "Content-Type": "application/json"
       })
     })

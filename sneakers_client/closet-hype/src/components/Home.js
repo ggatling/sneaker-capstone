@@ -44,8 +44,8 @@ class Home extends Component {
         this.setState({
           user: { ...this.state.user, res },
           loggedIn: true
-        });
-        localStorage.setItem('user', res.token);
+        }, () => localStorage.setItem('user', res.token));
+
       })
       .catch(err => {
         console.log(err);
