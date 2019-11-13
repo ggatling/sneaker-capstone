@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import UserSneakers from "./UserSneakers.js"
+import UserClothes from "./UserClothes.js"
 import Info from "./Info.js";
 
 class Profile extends Component{
@@ -17,7 +18,7 @@ class Profile extends Component{
   componentDidMount =() =>{
     this.getProfile();
     this.getProfileSneakers();
-    // this.getProfileClothes();
+    this.getProfileClothes();
   }
 
   getProfile =() =>{
@@ -72,6 +73,30 @@ class Profile extends Component{
     });
   }
 
+  getProfileClothes=()=>{
+    fetch("http://localhost:8080/clothes/list",{
+      method: "Get",
+      headers: new Headers({
+        'Authorization': "Bearer " + localStorage.getItem("user"),
+        "Content-Type": "application/json"
+      })
+    })
+    .then(res => {
+      // console.log(res.json())
+      return res.json()
+      // set the state to be an array of user sneakers
+    })
+    .then(res => {
+      this.setState({
+        clothes: res
+      })
+      return res;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   render() {
     return(
       <div>
@@ -95,8 +120,21 @@ class Profile extends Component{
              resalePrice = {sneaker.resalePrice}
              />
           )
-
         })}
+          {this.state.clothes.length > 0 && this.state.clothes.map(clothing => {
+           return (
+             <UserClothes
+              brand = {clothing.brand}
+              name = {clothing.name}
+              gender = {clothing.gender}
+              size = {clothing.size}
+              color = {clothing.color}
+              retailPrice = {clothing.retailPrice}
+              rentalPrice = {clothing.rentalPrice}
+              />
+           )
+
+         })}
       </div>
     )
   }
