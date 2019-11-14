@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Delius+Unicase&display=swap');
+
+
+
 .App {
   text-align: center;
 }
@@ -37,4 +41,29 @@
 @keyframes marquee {
     0%   { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
+}
+
+/* clothes jumbotron */
+.jumbo2{
+  background-image: url("../assests/${clothes-hanging}") no-repeat fixed bottom;
+  background-size: cover;
+  color: #efefef;
+  height: 350px;
+  position: relative;
+  z-index: -2;
+}
+
+.overlay{
+  background-color: #000;
+  opacity: 0.5  ;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+body {
+  font-family: 'Delius Unicase', cursive;
 }

@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Jumbotron } from "reactstrap";
 import Clothing from "./Clothing.js";
 import {
   Row, Col, Container
 } from 'react-bootstrap';
+import clotheshanging from '../assets/clothes-hanging.jpg'
 
 class Clothes extends Component {
   constructor(props) {
@@ -44,9 +45,24 @@ usersArr = [];
 
   }
 
+
+
   render() {
     return (
       <div>
+      <Jumbotron style={
+        { backgroundImage: `url(${clotheshanging})`,
+         backgroundSize: 'cover',
+         overlayColor: 'black',
+         height: 350
+        }}>
+        <Container className= "jumbo2">
+          <h1>Rent, Rock, Return, Repeat</h1>
+          <p>
+            Dummy Text
+          </p>
+        </Container>
+    </Jumbotron>
         <Container className="allClothing">
         <Row>
           <Col>Brand</Col>

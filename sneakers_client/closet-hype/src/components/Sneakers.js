@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Jumbotron } from "reactstrap";
 import Sneaker from "./Sneaker.js";
 import {
   Row, Col, Container
 } from 'react-bootstrap';
+import yeezy4 from '../assets/yeezy4.jpg'
 
 class Sneakers extends Component {
   constructor(props) {
@@ -49,6 +50,20 @@ class Sneakers extends Component {
   render() {
     return(
       <div>
+
+        <Jumbotron style={
+          { backgroundImage: `url(${yeezy4})`,
+           backgroundSize: 'cover',
+           overlayColor: 'black',
+           height: 350
+          }}>
+          <Container className= "jumbo2">
+            <h1>Sneakers for Sale</h1>
+            <p>
+              Dummy Text
+            </p>
+          </Container>
+        </Jumbotron>
         <Container className="allSneaker">
         <Row>
           <Col>Brand</Col>

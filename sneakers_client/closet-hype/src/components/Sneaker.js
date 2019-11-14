@@ -15,7 +15,7 @@ const Sneaker = props => {
         <Col>{props.releaseDate}</Col>
         <Col>{props.retailPrice}</Col>
         <Col>{props.resalePrice}</Col>
-        <Col>{props.email}</Col>
+        <Col><a href={`mailto:${props.email}`}>E-mail</a></Col>
       </Row>
  </Container>
   )

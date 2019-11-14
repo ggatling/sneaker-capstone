@@ -6,16 +6,17 @@ import {
 const Clothing = props => {
   return(
 
-    <Container className="allClothing">
+    <Container className="allClothing" style={
+      { padding: "5px" }}>
       <Row>
-        <Col>{props.brand}</Col>
-        <Col>{props.name}</Col>
-        <Col>{props.color}</Col>
-        <Col>{props.gender}</Col>
-        <Col>{props.size}</Col>
-        <Col>{props.retailPrice}</Col>
-        <Col>{props.rentalPrice}</Col>
-        <Col>{props.email}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.brand}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.name}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.color}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.gender}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.size}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.retailPrice}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.rentalPrice}</Col>
+        <Col style={{ border: "1px solid black" }}> <a href={`mailto:${props.email}`}>E-mail</a></Col>
       </Row>
  </Container>
   )
