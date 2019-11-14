@@ -2,6 +2,9 @@ import React,{Component} from "react";
 import UserSneakers from "./UserSneakers.js"
 import UserClothes from "./UserClothes.js"
 import Info from "./Info.js";
+import AddSneaker from "./AddSneaker.js"
+import { Button, Form, FormGroup, Label, Input, Modal } from "reactstrap";
+
 
 class Profile extends Component{
   constructor(props){
@@ -12,13 +15,25 @@ class Profile extends Component{
       state: '',
       zipcode: '',
       sneakers: [],
-      clothes: []
+      clothes: [],
+      brand: '',
+      name: '',
+      gender: '',
+      size: '',
+      condition: '',
+      releaseDate: '',
+      retailPrice: '',
+      resalePrice: '',
+      email: ''
+      }
+
     }
-  }
+
   componentDidMount =() =>{
     this.getProfile();
     this.getProfileSneakers();
     this.getProfileClothes();
+    // this.addSneaker();
   }
 
   getProfile =() =>{
@@ -97,15 +112,63 @@ class Profile extends Component{
     });
   }
 
+  // addSneaker=(e)=>{
+  //   e.preventDefault();
+  //   fetch("http://localhost:8080/sneakers",{
+  //     method: "Post",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       brand: this.state.brand,
+  //       name: this.state.name,
+  //       gender: this.state.gender,
+  //       size: this.state.size,
+  //       condition: this.state.condition,
+  //       releaseDate: this.state.releaseDate,
+  //       retailPrice: this.state.retailPrice,
+  //       resalePrice: this.state.resalePrice,
+  //       email: this.state.email
+  //     })
+  //   })
+  //   .then(res => {
+  //     return res.json();
+  //   })
+  //   .then( res => {
+  //     this.setState({
+  //       brand: res.brand,
+  //       name: res.name,
+  //       gender: res.gender,
+  //       size: res.size,
+  //       condition: res.condition,
+  //       releaseDate: res.releaseDate,
+  //       retailPrice: res.retailPrice,
+  //       resalePrice: res.resalePrice,
+  //       email: res.email
+  //     })
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+  // }
+
+  handleBrandChange = e => {
+    this.setState({brand: e.target.value }
+    );
+  };
+
   render() {
     return(
       <div>
-      <Info
+          <Info
             email = {this.state.email}
             city = {this.state.city}
             state = {this.state.state}
             zipcode = {this.state.zipcode}
-                />
+            />
+
+
+
          {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {
           return (
 
