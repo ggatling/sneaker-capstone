@@ -24,7 +24,6 @@ class Profile extends Component{
       releaseDate: '',
       retailPrice: '',
       resalePrice: '',
-      email: ''
       }
 
     }
@@ -112,48 +111,80 @@ class Profile extends Component{
     });
   }
 
-  // addSneaker=(e)=>{
-  //   e.preventDefault();
-  //   fetch("http://localhost:8080/sneakers",{
-  //     method: "Post",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       brand: this.state.brand,
-  //       name: this.state.name,
-  //       gender: this.state.gender,
-  //       size: this.state.size,
-  //       condition: this.state.condition,
-  //       releaseDate: this.state.releaseDate,
-  //       retailPrice: this.state.retailPrice,
-  //       resalePrice: this.state.resalePrice,
-  //       email: this.state.email
-  //     })
-  //   })
-  //   .then(res => {
-  //     return res.json();
-  //   })
-  //   .then( res => {
-  //     this.setState({
-  //       brand: res.brand,
-  //       name: res.name,
-  //       gender: res.gender,
-  //       size: res.size,
-  //       condition: res.condition,
-  //       releaseDate: res.releaseDate,
-  //       retailPrice: res.retailPrice,
-  //       resalePrice: res.resalePrice,
-  //       email: res.email
-  //     })
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
-  // }
+  addSneaker=(e)=>{
+    e.preventDefault();
+    console.log(e)
+    fetch("http://localhost:8080/sneakers",{
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        brand: this.state.brand,
+        name: this.state.name,
+        gender: this.state.gender,
+        size: this.state.size,
+        condition: this.state.condition,
+        releaseDate: this.state.releaseDate,
+        retailPrice: this.state.retailPrice,
+        resalePrice: this.state.resalePrice,
+        email: this.state.email
+      })
+    })
+    .then(res => {
+      return res.json();
+    })
+    .then( res => {
+      this.setState({
+        brand: res.brand,
+        name: res.name,
+        gender: res.gender,
+        size: res.size,
+        condition: res.condition,
+        releaseDate: res.releaseDate,
+        retailPrice: res.retailPrice,
+        resalePrice: res.resalePrice,
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 
   handleBrandChange = e => {
     this.setState({brand: e.target.value }
+    );
+  };
+
+  handleNameChange = e => {
+    this.setState({name: e.target.value }
+    );
+  };
+  handleGenderChange = e => {
+    this.setState({gender: e.target.value }
+    );
+  };
+
+  handleSizeChange = e => {
+    this.setState({size: e.target.value }
+    );
+  };
+  handleConditionChange = e => {
+    this.setState({change: e.target.value }
+    );
+  };
+
+  handleReleaseChange = e => {
+    this.setState({releaseDate: e.target.value }
+    );
+  };
+  handleRetailChange = e => {
+    this.setState({retailPrice: e.target.value }
+    );
+  };
+
+  handleResaleChange = e => {
+    this.setState({resalePrice: e.target.value }
     );
   };
 
@@ -167,7 +198,25 @@ class Profile extends Component{
             zipcode = {this.state.zipcode}
             />
 
-
+            <AddSneaker
+              brand = {this.state.brand}
+              name = {this.state.name}
+              gender = {this.state.gender}
+              size = {this.state.size}
+              conditon = {this.state.conditon}
+              releaseDate = {this.state.releaseDate}
+              retailPrice = {this.state.retailPrice}
+              resalePrice = {this.state.resalePrice}
+              handleNameChange = {this.handleNameChange}
+              handleBrandChange = {this.handleBrandChange}
+              handleGenderChange = {this.handleGenderChange}
+              handleSizeChange = {this.handleSizeChange}
+              handleConditionChange = {this.handleConditionChange}
+              handleReleaseChange = {this.handleReleaseChange}
+              handleRetailChange = {this.handleRetailChange}
+              handleResaleChange = {this.handleResaleChange}
+              addSneaker = {e => this.addSneaker(e)}
+            />
 
          {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {
           return (
