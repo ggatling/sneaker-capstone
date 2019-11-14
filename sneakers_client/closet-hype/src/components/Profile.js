@@ -24,6 +24,7 @@ class Profile extends Component{
       releaseDate: '',
       retailPrice: '',
       resalePrice: '',
+      users: localStorage.getItem("user")
       }
 
     }
@@ -32,7 +33,6 @@ class Profile extends Component{
     this.getProfile();
     this.getProfileSneakers();
     this.getProfileClothes();
-    // this.addSneaker();
   }
 
   getProfile =() =>{
@@ -117,7 +117,8 @@ class Profile extends Component{
     fetch("http://localhost:8080/sneakers",{
       method: "Post",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': "Bearer " + localStorage.getItem("user")
       },
       body: JSON.stringify({
         brand: this.state.brand,
@@ -128,13 +129,23 @@ class Profile extends Component{
         releaseDate: this.state.releaseDate,
         retailPrice: this.state.retailPrice,
         resalePrice: this.state.resalePrice,
-        email: this.state.email
       })
     })
     .then(res => {
       return res.json();
     })
     .then( res => {
+      console.log(res)
+      const sneakerObj = {
+        brand: res.brand,
+        name: res.name,
+        gender: res.gender,
+        size: res.size,
+        condition: res.condition,
+        releaseDate: res.releaseDate,
+        retailPrice: res.retailPrice,
+        resalePrice: res.resalePrice
+      }
       this.setState({
         brand: res.brand,
         name: res.name,
@@ -144,7 +155,9 @@ class Profile extends Component{
         releaseDate: res.releaseDate,
         retailPrice: res.retailPrice,
         resalePrice: res.resalePrice,
+        sneakers: [...this.state.sneakers, sneakerObj]
       })
+
     })
     .catch(err => {
       console.log(err);

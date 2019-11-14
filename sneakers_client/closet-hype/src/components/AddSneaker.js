@@ -87,7 +87,7 @@ const AddSneaker = (props) => {
               placeholder="resale price"
             />
           </FormGroup>
-            <Button className="btn btn-primary btn-block">Add Sneaker</Button>
+            <Button type="submit" onClick={toggle} className="btn btn-primary btn-block">Add Sneaker</Button>
         </Form>
         </ModalBody>
         <ModalFooter>
