@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Jumbotron } from "./Jumbotron.js";
-import Sneakers from "./Sneakers.js";
-import Clothes from "./Clothes.js";
 import Login from "./Login.js";
 import Signup from "./Signup.js";
 import { Redirect } from "react-router-dom";

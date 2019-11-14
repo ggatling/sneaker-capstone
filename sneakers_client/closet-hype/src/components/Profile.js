@@ -1,10 +1,9 @@
 import React,{Component} from "react";
-import UserSneakers from "./UserSneakers.js"
-import UserClothes from "./UserClothes.js"
+import UserSneakers from "./UserSneakers.js";
+import UserClothes from "./UserClothes.js";
 import Info from "./Info.js";
-import AddSneaker from "./AddSneaker.js"
-import { Button, Form, FormGroup, Label, Input, Modal } from "reactstrap";
-
+import AddSneaker from "./AddSneaker.js";
+import AddClothes from "./AddClothes.js";
 
 class Profile extends Component{
   constructor(props){
@@ -24,6 +23,8 @@ class Profile extends Component{
       releaseDate: '',
       retailPrice: '',
       resalePrice: '',
+      rentalPrice: '',
+      color: '',
       users: localStorage.getItem("user")
       }
 
@@ -164,6 +165,57 @@ class Profile extends Component{
     });
   }
 
+
+  addClothes=(e)=>{
+    e.preventDefault();
+    console.log(e)
+    fetch("http://localhost:8080/clothes",{
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': "Bearer " + localStorage.getItem("user")
+      },
+      body: JSON.stringify({
+        brand: this.state.brand,
+        name: this.state.name,
+        gender: this.state.gender,
+        size: this.state.size,
+        color: this.state.color,
+        retailPrice: this.state.retailPrice,
+        rentalprice: this.state.rentalprice,
+      })
+    })
+    .then(res => {
+      return res.json();
+    })
+    .then( res => {
+      console.log(res)
+      const clothesObj = {
+        brand: res.brand,
+        name: res.name,
+        gender: res.gender,
+        size: res.size,
+        color: res.color,
+        retailPrice: res.retailPrice,
+        rentalprice: res.rentalPrice
+      }
+      this.setState({
+        brand: res.brand,
+        name: res.name,
+        gender: res.gender,
+        size: res.size,
+        color: res.color,
+        retailPrice: res.retailPrice,
+        rentalPrice: res.rentalPrice,
+        clothes: [...this.state.clothes, clothesObj]
+      })
+
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   handleBrandChange = e => {
     this.setState({brand: e.target.value }
     );
@@ -201,6 +253,16 @@ class Profile extends Component{
     );
   };
 
+  handleColorChange = e => {
+    this.setState({color: e.target.value }
+    );
+  };
+
+  handleRentalChange = e => {
+    this.setState({rentalPrice: e.target.value }
+    );
+  };
+
   render() {
     return(
       <div>
@@ -229,6 +291,24 @@ class Profile extends Component{
               handleRetailChange = {this.handleRetailChange}
               handleResaleChange = {this.handleResaleChange}
               addSneaker = {e => this.addSneaker(e)}
+            />
+
+            <AddClothes
+              brand = {this.state.brand}
+              name = {this.state.name}
+              gender = {this.state.gender}
+              size = {this.state.size}
+              color = {this.state.color}
+              retailPrice = {this.state.retailPrice}
+              rentalPrice = {this.state.rentalPrice}
+              handleNameChange = {this.handleNameChange}
+              handleBrandChange = {this.handleBrandChange}
+              handleGenderChange = {this.handleGenderChange}
+              handleSizeChange = {this.handleSizeChange}
+              handleColorChange = {this.handleColorChange}
+              handleRetailChange = {this.handleRetailChange}
+              handleRentalChange = {this.handleRentalChange}
+              addClothes = {e => this.addClothes(e)}
             />
 
          {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {

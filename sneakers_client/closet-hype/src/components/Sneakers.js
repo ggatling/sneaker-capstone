@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Button, Form, FormGroup, Label, Input, Jumbotron } from "reactstrap";
+import { Jumbotron } from "reactstrap";
 import Sneaker from "./Sneaker.js";
 import {
   Row, Col, Container

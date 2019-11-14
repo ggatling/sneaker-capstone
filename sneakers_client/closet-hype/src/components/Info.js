@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Row, Col, Container, Card
+  Row, Card
 } from 'react-bootstrap';
 
 const Info = props => {
