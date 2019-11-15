@@ -14,8 +14,8 @@ const Clothing = props => {
         <Col style={{ border: "1px solid black" }}>{props.color}</Col>
         <Col style={{ border: "1px solid black" }}>{props.gender}</Col>
         <Col style={{ border: "1px solid black" }}>{props.size}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.retailPrice}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.rentalPrice}</Col>
+        <Col style={{ border: "1px solid black" }}>${props.retailPrice}</Col>
+        <Col style={{ border: "1px solid black" }}>${props.rentalPrice}</Col>
         <Col style={{ border: "1px solid black" }}> <a href={`mailto:${props.email}`}>E-mail</a></Col>
       </Row>
  </Container>

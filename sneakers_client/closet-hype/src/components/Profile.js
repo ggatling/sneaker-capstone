@@ -4,6 +4,9 @@ import UserClothes from "./UserClothes.js";
 import Info from "./Info.js";
 import AddSneaker from "./AddSneaker.js";
 import AddClothes from "./AddClothes.js";
+import {
+  Row, Col, Container
+} from 'react-bootstrap';
 
 class Profile extends Component{
   constructor(props){
@@ -182,7 +185,7 @@ class Profile extends Component{
         size: this.state.size,
         color: this.state.color,
         retailPrice: this.state.retailPrice,
-        rentalprice: this.state.rentalprice,
+        rentalPrice: this.state.rentalPrice,
       })
     })
     .then(res => {
@@ -197,7 +200,7 @@ class Profile extends Component{
         size: res.size,
         color: res.color,
         retailPrice: res.retailPrice,
-        rentalprice: res.rentalPrice
+        rentalPrice: res.rentalPrice
       }
       this.setState({
         brand: res.brand,
@@ -235,7 +238,7 @@ class Profile extends Component{
     );
   };
   handleConditionChange = e => {
-    this.setState({change: e.target.value }
+    this.setState({condition: e.target.value }
     );
   };
 
@@ -266,50 +269,70 @@ class Profile extends Component{
   render() {
     return(
       <div>
-          <Info
-            email = {this.state.email}
-            city = {this.state.city}
-            state = {this.state.state}
-            zipcode = {this.state.zipcode}
-            />
+        <Info
+          email = {this.state.email}
+          city = {this.state.city}
+          state = {this.state.state}
+          zipcode = {this.state.zipcode}
+          />
 
-            <AddSneaker
-              brand = {this.state.brand}
-              name = {this.state.name}
-              gender = {this.state.gender}
-              size = {this.state.size}
-              conditon = {this.state.conditon}
-              releaseDate = {this.state.releaseDate}
-              retailPrice = {this.state.retailPrice}
-              resalePrice = {this.state.resalePrice}
-              handleNameChange = {this.handleNameChange}
-              handleBrandChange = {this.handleBrandChange}
-              handleGenderChange = {this.handleGenderChange}
-              handleSizeChange = {this.handleSizeChange}
-              handleConditionChange = {this.handleConditionChange}
-              handleReleaseChange = {this.handleReleaseChange}
-              handleRetailChange = {this.handleRetailChange}
-              handleResaleChange = {this.handleResaleChange}
-              addSneaker = {e => this.addSneaker(e)}
-            />
+        <Container>
+          <Row>
+            <Col>
+              <AddSneaker
+                brand = {this.state.brand}
+                name = {this.state.name}
+                gender = {this.state.gender}
+                size = {this.state.size}
+                conditon = {this.state.conditon}
+                releaseDate = {this.state.releaseDate}
+                retailPrice = {this.state.retailPrice}
+                resalePrice = {this.state.resalePrice}
+                handleNameChange = {this.handleNameChange}
+                handleBrandChange = {this.handleBrandChange}
+                handleGenderChange = {this.handleGenderChange}
+                handleSizeChange = {this.handleSizeChange}
+                handleConditionChange = {this.handleConditionChange}
+                handleReleaseChange = {this.handleReleaseChange}
+                handleRetailChange = {this.handleRetailChange}
+                handleResaleChange = {this.handleResaleChange}
+                addSneaker = {e => this.addSneaker(e)}
+              />
+            </Col>
+            <Col>
+              <AddClothes
+                brand = {this.state.brand}
+                name = {this.state.name}
+                color = {this.state.color}
+                gender = {this.state.gender}
+                size = {this.state.size}
+                retailPrice = {this.state.retailPrice}
+                rentalPrice = {this.state.rentalPrice}
+                handleNameChange = {this.handleNameChange}
+                handleBrandChange = {this.handleBrandChange}
+                handleColorChange = {this.handleColorChange}
+                handleGenderChange = {this.handleGenderChange}
+                handleSizeChange = {this.handleSizeChange}
+                handleRetailChange = {this.handleRetailChange}
+                handleRentalChange = {this.handleRentalChange}
+                addClothes = {e => this.addClothes(e)}
+              />
+            </Col>
+          </Row>
+        </Container>
 
-            <AddClothes
-              brand = {this.state.brand}
-              name = {this.state.name}
-              gender = {this.state.gender}
-              size = {this.state.size}
-              color = {this.state.color}
-              retailPrice = {this.state.retailPrice}
-              rentalPrice = {this.state.rentalPrice}
-              handleNameChange = {this.handleNameChange}
-              handleBrandChange = {this.handleBrandChange}
-              handleGenderChange = {this.handleGenderChange}
-              handleSizeChange = {this.handleSizeChange}
-              handleColorChange = {this.handleColorChange}
-              handleRetailChange = {this.handleRetailChange}
-              handleRentalChange = {this.handleRentalChange}
-              addClothes = {e => this.addClothes(e)}
-            />
+        <Container className="allSneaker">
+        <Row>
+          <Col>Brand</Col>
+          <Col>Name</Col>
+          <Col>Gender</Col>
+          <Col>Size</Col>
+          <Col>Condition</Col>
+          <Col>Release Date</Col>
+          <Col>Retail Price</Col>
+          <Col>Resale Price</Col>
+        </Row>
+        </Container>
 
          {this.state.sneakers.length > 0 && this.state.sneakers.map(sneaker => {
           return (
@@ -326,14 +349,29 @@ class Profile extends Component{
              />
           )
         })}
+        <br/>
+        <br/>
+        <br/>
+        <Container className="allClothing">
+        <Row>
+          <Col>Brand</Col>
+          <Col>Name</Col>
+          <Col>Color</Col>
+          <Col>Gender</Col>
+          <Col>Size</Col>
+          <Col>Retail Price</Col>
+          <Col>Rental Price</Col>
+        </Row>
+        </Container>
+
           {this.state.clothes.length > 0 && this.state.clothes.map(clothing => {
            return (
              <UserClothes
               brand = {clothing.brand}
               name = {clothing.name}
+              color = {clothing.color}
               gender = {clothing.gender}
               size = {clothing.size}
-              color = {clothing.color}
               retailPrice = {clothing.retailPrice}
               rentalPrice = {clothing.rentalPrice}
               />

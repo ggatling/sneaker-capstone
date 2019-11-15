@@ -6,15 +6,16 @@ import {
 const UserClothes = props => {
   return(
 
-    <Container className="userClothing">
+    <Container className="userClothing" style={
+      { padding: "5px" }}>
       <Row>
-        <Col>{props.brand}</Col>
-        <Col>{props.name}</Col>
-        <Col>{props.color}</Col>
-        <Col>{props.gender}</Col>
-        <Col>{props.size}</Col>
-        <Col>{props.retailPrice}</Col>
-        <Col>{props.rentalePrice}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.brand}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.name}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.color}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.gender}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.size}</Col>
+        <Col style={{ border: "1px solid black" }}>${props.retailPrice}</Col>
+        <Col style={{ border: "1px solid black" }}>${props.rentalPrice}</Col>
       </Row>
  </Container>
   )

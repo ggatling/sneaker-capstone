@@ -5,16 +5,17 @@ import {
 
 const UserSneakers = props => {
   return(
-    <Container className="userSneaker">
+    <Container className="userSneaker" style={
+      { padding: "5px" }}>
       <Row>
-        <Col>{props.brand}</Col>
-        <Col>{props.name}</Col>
-        <Col>{props.gender}</Col>
-        <Col>{props.size}</Col>
-        <Col>{props.condition}</Col>
-        <Col>{props.releaseDate}</Col>
-        <Col>{props.retailPrice}</Col>
-        <Col>{props.resalePrice}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.brand}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.name}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.gender}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.size}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.condition}</Col>
+        <Col style={{ border: "1px solid black" }}>{props.releaseDate}</Col>
+        <Col style={{ border: "1px solid black" }}>${props.retailPrice}</Col>
+        <Col style={{ border: "1px solid black" }}>${props.resalePrice}</Col>
       </Row>
  </Container>
   )

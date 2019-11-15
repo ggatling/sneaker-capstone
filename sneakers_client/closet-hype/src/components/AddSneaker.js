@@ -68,7 +68,7 @@ const AddSneaker = (props) => {
               type="text"
               value={props.releaseDate}
               onChange={props.handleReleaseChange}
-              placeholder="releasedate"
+              placeholder="release date"
             />
           </FormGroup>
           <FormGroup>
@@ -76,7 +76,7 @@ const AddSneaker = (props) => {
               type="text"
               value={props.retailPrice}
               onChange={props.handleRetailChange}
-              placeholder="retailprice"
+              placeholder="retail price"
             />
           </FormGroup>
           <FormGroup>

@@ -42,6 +42,14 @@ const AddClothes = (props) => {
           <FormGroup>
             <Input
               type="text"
+              value={props.color}
+              onChange={props.handleColorChange}
+              placeholder="color"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              type="text"
               value={props.gender}
               onChange={props.handleGenderChange}
               placeholder="gender"
@@ -58,17 +66,9 @@ const AddClothes = (props) => {
           <FormGroup>
             <Input
               type="text"
-              value={props.color}
-              onChange={props.handleColorChange}
-              placeholder="condition"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Input
-              type="text"
               value={props.retailPrice}
               onChange={props.handleRetailChange}
-              placeholder="retailprice"
+              placeholder="retail price"
             />
           </FormGroup>
           <FormGroup>
@@ -76,7 +76,7 @@ const AddClothes = (props) => {
               type="text"
               value={props.rentalPrice}
               onChange={props.handleRentalChange}
-              placeholder="resale price"
+              placeholder="rental price"
             />
           </FormGroup>
             <Button type="submit" onClick={toggle} className="btn btn-primary btn-block">Submit</Button>
