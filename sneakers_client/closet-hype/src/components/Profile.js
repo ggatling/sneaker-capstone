@@ -4,6 +4,7 @@ import UserClothes from "./UserClothes.js";
 import Info from "./Info.js";
 import AddSneaker from "./AddSneaker.js";
 import AddClothes from "./AddClothes.js";
+import UpdateProfile from "./UpdateProfile.js";
 import {
   Row, Col, Container
 } from 'react-bootstrap';
@@ -12,6 +13,7 @@ class Profile extends Component{
   constructor(props){
     super(props);
     this.state={
+      username: '',
       email: '',
       city:'',
       state: '',
@@ -54,13 +56,43 @@ class Profile extends Component{
       // set the state to be an array of sneakers
     })
     .then(res => {
+      this.getState({
+        email: 'test5@test5.com',
+        city: 'Brooklyn',
+        state: 'New York',
+        zipcode: '11221'
+      })
+      return res;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  updateProfile=()=>{
+    fetch("http://localhost:8080/profile",{
+      method:"Put",
+      headers:{
+        'Authorization': "Bearer " + localStorage.getItem("user"),
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+      email: this.state.email,
+      city: this.state.city,
+      state: this.state.state,
+      zipcode: this.state.zipcode
+      })
+    })
+    .then(res => {
+      return res.json();
+    })
+    .then(res=>{
       this.setState({
         email: res.email,
         city: res.city,
         state: res.state,
         zipcode: res.zipcode
       })
-      return res;
     })
     .catch(err => {
       console.log(err);
@@ -218,6 +250,25 @@ class Profile extends Component{
       console.log(err);
     });
   }
+  handleEmailChange = e => {
+    this.setState({email: e.target.value }
+    );
+  };
+
+  handleCityChange = e => {
+    this.setState({city: e.target.value }
+    );
+  };
+
+  handleStateChange = e => {
+    this.setState({state: e.target.value }
+    );
+  };
+
+  handleZipcodeChange = e => {
+    this.setState({zipcode: e.target.value }
+    );
+  };
 
   handleBrandChange = e => {
     this.setState({brand: e.target.value }
@@ -275,6 +326,13 @@ class Profile extends Component{
           state = {this.state.state}
           zipcode = {this.state.zipcode}
           />
+
+        <UpdateProfile
+          email={this.state.email}
+          city={this.state.city}
+          state={this.state.state}
+          zipcode={this.state.zipcode}
+        />
 
         <Container>
           <Row>

@@ -6,17 +6,18 @@ import {
 const Sneaker = props => {
   return(
     <Container className="allSneaker" style={
-      { padding: "5px" }}>
+      { padding: "5px",}
+    }>
       <Row>
-        <Col style={{ border: "1px solid black" }}>{props.brand}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.name}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.gender}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.size}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.condition}</Col>
-        <Col style={{ border: "1px solid black" }}>{props.releaseDate}</Col>
-        <Col style={{ border: "1px solid black" }}>${props.retailPrice}</Col>
-        <Col style={{ border: "1px solid black" }}>${props.resalePrice}</Col>
-        <Col style={{ border: "1px solid black" }}><a href={`mailto:${props.email}`}>E-mail</a></Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>{props.brand}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>{props.name}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>{props.gender}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>{props.size}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>{props.condition}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>{props.releaseDate}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>${props.retailPrice}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}>${props.resalePrice}</Col>
+        <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888"}}><a href={`mailto:${props.email}`}>E-mail</a></Col>
       </Row>
  </Container>
   )

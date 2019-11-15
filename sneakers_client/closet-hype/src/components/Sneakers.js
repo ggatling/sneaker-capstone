@@ -58,23 +58,23 @@ class Sneakers extends Component {
            height: 350
           }}>
           <Container className= "jumbo2">
-            <h1>Sneakers for Sale</h1>
-            <p>
-              Dummy Text
-            </p>
+            <h1 style={{color: "white"}}>Sneakers for Sale</h1>
+            <h5 style={{color: "white"}}>
+              Check out our inventory
+            </h5>
           </Container>
         </Jumbotron>
         <Container className="allSneaker">
         <Row>
-          <Col>Brand</Col>
-          <Col>Name</Col>
-          <Col>Gender</Col>
-          <Col>Size</Col>
-          <Col>Condition</Col>
-          <Col>Release Date</Col>
-          <Col>Retail Price</Col>
-          <Col>Resale price</Col>
-          <Col>E-mail</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Brand</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Name</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Gender</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Size</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Condition</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Release Date</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Retail Price</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>Resale price</Col>
+          <Col style={{border: "1px solid black",boxShadow: "2px 2px #888888", background: "#24c9c7"}}>E-mail</Col>
         </Row>
         </Container>
 

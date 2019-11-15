@@ -8,8 +8,8 @@ const Info = props => {
 
   <Card style={{ width: '18rem' }}>
     <Card.Body>
-      <Card.Title>Closet Information</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+      <Card.Title>Welcome To Your Closet</Card.Title>
       <Row><Card.Text> Email: {props.email} </Card.Text></Row>
       <Row><Card.Text> City: {props.city} </Card.Text></Row>
       <Row><Card.Text> State: {props.state} </Card.Text></Row>

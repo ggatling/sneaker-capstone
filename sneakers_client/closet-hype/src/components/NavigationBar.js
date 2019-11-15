@@ -35,6 +35,9 @@ const NavigationBar = () => {
               <Nav.Item>
                 <Nav.Link href="/profile">Profile</Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/logout">Log Out</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

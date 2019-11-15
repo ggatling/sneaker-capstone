@@ -103,11 +103,10 @@ class Home extends Component {
 
   render() {
     if (this.state.loggedIn) {
-      return <Redirect to="/sneakers" />;
+      return <Redirect to="/profile" />;
     }
     return (
       <div>
-        Home
         <Jumbotron />
         <Container>
         <Row>
