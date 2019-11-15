@@ -2,7 +2,7 @@
 
 ## Introduction
 
-For my final project my goal was to create a web application that would allow users to keep track of shoes they wanted to sell and clothes that they had for rent
+For my final project my goal was to create a web application that would allow users to keep track of shoes they wanted to sell and clothes that they had for rent in an effort to eliminate the fees paid to consignment shops and enable peer to peer lending.
 
 ## Technologies Used
 - React Js
@@ -32,6 +32,15 @@ React
 
 After deciding on my project idea I first wanted to wireframe the initial flow of the site and layout what relationships I would need to have. I chose to use both figma and white boarding to complete this task. Then, I did some research to see if I there were any external APIs I could use to  help bring in the information of the products users would add to their closet. Unfortunately when looking into a Barcode API that would return sneaker and clothes information to help pre-populate the fields when a user provides a barcode.
 
+
+
+![Wireframe 1](<iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FaZgcCHNdA9mSzrM02ENtZ2%2FPrototyping-in-Figma%3Fnode-id%3D5%253A16" allowfullscreen></iframe>)
+
+
+![Wireframe 2](/assets/sneakerframe1.png)
+
+![Wireframe 3](/assets/sneakerframe2.png)
+
 Initial Timeline
 
 Week| Day | Task
@@ -45,6 +54,9 @@ Week 2 |Tuesday/Wednesday | Deploy on AWS
 Week 2 |Thursday | Testing entire project
 
 
+## Project Hurdles
+
+Each day brought a different challenge but the biggest challenge was present on Monday of Week 2 when I had to start my React front-end over again because I wasn't passing props effectively, but it was a good learning experience.
 
 ## User Stories
 
