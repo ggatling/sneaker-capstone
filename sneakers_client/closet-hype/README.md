@@ -32,14 +32,13 @@ React
 
 After deciding on my project idea I first wanted to wireframe the initial flow of the site and layout what relationships I would need to have. I chose to use both figma and white boarding to complete this task. Then, I did some research to see if I there were any external APIs I could use to  help bring in the information of the products users would add to their closet. Unfortunately when looking into a Barcode API that would return sneaker and clothes information to help pre-populate the fields when a user provides a barcode.
 
+![Wireframe 1](/src/assets/sneakerframe1.png)
 
+![Wireframe 2](/src/assets/sneakerframe2.png)
 
-![Wireframe 1](<iframe style="border: none;" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FaZgcCHNdA9mSzrM02ENtZ2%2FPrototyping-in-Figma%3Fnode-id%3D5%253A16" allowfullscreen></iframe>)
+![Wireframe 3](/src/assets/sneakerframe3.jpg)
 
-
-![Wireframe 2](/assets/sneakerframe1.png)
-
-![Wireframe 3](/assets/sneakerframe2.png)
+![Wireframe 4](/src/assets/sneakerframe2.jpg)
 
 Initial Timeline
 
