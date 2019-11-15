@@ -7,8 +7,6 @@ class Logout extends Component {
 render(){
   return(
     <Redirect to= "/home" />
-
-    localStorage.clear()
   )
 }
 }
